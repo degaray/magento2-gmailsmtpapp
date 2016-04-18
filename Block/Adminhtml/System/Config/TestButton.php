@@ -6,29 +6,12 @@
 
 namespace MagePal\GmailSmtpApp\Block\Adminhtml\System\Config;
 
-use \Magento\Framework\UrlInterface;
-
 /**
  * "Reset to Defaults" button renderer
  *
  */
 class TestButton extends \Magento\Config\Block\System\Config\Form\Field
 {
-    /** @var UrlInterface */
-    protected $_urlBuilder;
-    
-    /**
-     * @param \Magento\Backend\Block\Template\Context $context
-     * @param array $data
-     */
-    public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
-        array $data = []
-    ) {
-        $this->_urlBuilder = $context->getUrlBuilder();
-        parent::__construct($context, $data);
-    }
-
     /**
      * Set template
      *
@@ -59,7 +42,7 @@ class TestButton extends \Magento\Config\Block\System\Config\Form\Field
 
         return $button->toHtml();
     }
-    
+
     public function getAdminUrl(){
         return $this->_urlBuilder->getUrl('magepalGmailsmtpapp/test', ['store' => $this->_request->getParam('store')]);
     }
